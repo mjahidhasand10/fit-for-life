@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00a651;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+body {
+  font-family: "Poppins";
+}
+
+.container {
+  @apply w-full max-w-7xl px-4 mx-auto;
+}
+
+header {
+  @apply border-b border-gray-200;
+
+  .top-bar {
+    /* We will link this to Tailwind's theme in the next step */
+    @apply hidden lg:block h-10 bg-primary;
+
+    div {
+      @apply h-full flex items-center justify-between py-2;
+    }
+
+    span {
+      /* We will link this to Tailwind's theme in the next step */
+      @apply text-white text-xs font-bold;
+    }
+
+    nav {
+      @apply flex gap-2;
+
+      img {
+        @apply invert;
+      }
+    }
+  }
+
+  .bottom-bar {
+    @apply py-3 flex items-center justify-between;
+
+    > a {
+      @apply max-w-32 lg:max-w-48 object-cover;
+    }
+
+    > nav {
+      @apply hidden lg:flex lg:items-center gap-3;
+
+      a {
+        @apply font-bold uppercase;
+      }
+
+      a.active {
+        @apply text-primary;
+      }
+    }
+
+    > div {
+      @apply flex items-center gap-6;
+
+      button:last-child {
+        @apply flex items-center gap-1.5;
+      }
+    }
+
+    .mobile-tablet {
+      @apply lg:hidden;
+    }
+  }
+}
+
+.page.product {
+  @apply my-8;
+
+  .regular-price {
+    @apply text-gray-500 text-lg line-through;
+  }
+
+  .sale-price {
+    @apply text-primary text-xl font-semibold;
+  }
+}
